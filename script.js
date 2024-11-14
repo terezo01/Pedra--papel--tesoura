@@ -37,12 +37,12 @@ cartasP.forEach(carta => {
 
             document.getElementById('alerta').innerHTML = 'Houve um empate'
             setTimeout(() => {
-            resetCards();
-            document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
+                resetCards();
+                document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
 
-        }else if(cartaP === 'tesouraP' && escolhidaB === 2){
-            
+        } else if (cartaP === 'tesouraP' && escolhidaB === 2) {
+
             document.getElementById('alerta').innerHTML = 'O Bot ganhou dessa vez'
             vitoriaB += 1
             document.getElementById('bot').innerHTML = `Bot ganhou ${vitoriaB}`
@@ -50,9 +50,9 @@ cartasP.forEach(carta => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
-            
-        }else if(cartaP === 'tesouraP' && escolhidaB === 3){
-            
+
+        } else if (cartaP === 'tesouraP' && escolhidaB === 3) {
+
             document.getElementById('alerta').innerHTML = 'O Player ganhou dessa vez'
             vitoriaP += 1
             document.getElementById('player').innerHTML = `Player ganhou ${vitoriaP}`
@@ -60,9 +60,9 @@ cartasP.forEach(carta => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
-            
-        }else if(cartaP === 'pedraP' && escolhidaB === 1){
-            
+
+        } else if (cartaP === 'pedraP' && escolhidaB === 1) {
+
             document.getElementById('alerta').innerHTML = 'O player ganhou dessa vez'
             vitoriaP += 1
             document.getElementById('player').innerHTML = `Player ganhou ${vitoriaP}`
@@ -70,26 +70,16 @@ cartasP.forEach(carta => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
-            
-        }else if(cartaP === 'pedraP' && escolhidaB === 2){
-            
+
+        } else if (cartaP === 'pedraP' && escolhidaB === 2) {
+
             document.getElementById('alerta').innerHTML = 'Houve um empate'
             setTimeout(() => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
-            
-        }else if(cartaP === 'pedraP' && escolhidaB === 3){
-            
-            document.getElementById('alerta').innerHTML = 'O Bot ganhou dessa vez'
-            vitoriaB += 1
-            document.getElementById('bot').innerHTML = `Bot ganhou ${vitoriaB}`
-            setTimeout(() => {
-                resetCards();
-                document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
-            }, 1000);
-            
-        }else if(cartaP === 'papelP' && escolhidaB === 1){
+
+        } else if (cartaP === 'pedraP' && escolhidaB === 3) {
 
             document.getElementById('alerta').innerHTML = 'O Bot ganhou dessa vez'
             vitoriaB += 1
@@ -98,8 +88,18 @@ cartasP.forEach(carta => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
-        }else if(cartaP === 'papelP' && escolhidaB === 2){
-            
+
+        } else if (cartaP === 'papelP' && escolhidaB === 1) {
+
+            document.getElementById('alerta').innerHTML = 'O Bot ganhou dessa vez'
+            vitoriaB += 1
+            document.getElementById('bot').innerHTML = `Bot ganhou ${vitoriaB}`
+            setTimeout(() => {
+                resetCards();
+                document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
+            }, 1000);
+        } else if (cartaP === 'papelP' && escolhidaB === 2) {
+
             document.getElementById('alerta').innerHTML = 'O Player ganhou dessa vez'
             vitoriaP += 1
             document.getElementById('player').innerHTML = `Player ganhou ${vitoriaP}`
@@ -107,13 +107,18 @@ cartasP.forEach(carta => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
-        }else if(cartaP === 'papelP' && escolhidaB === 3){
-            
+        } else if (cartaP === 'papelP' && escolhidaB === 3) {
+
             document.getElementById('alerta').innerHTML = 'Houve um empate'
             setTimeout(() => {
                 resetCards();
                 document.getElementById('alerta').innerHTML = `Rodada ${rodada}`
             }, 1000);
+        }
+
+        if(vitoriaB === 5 || vitoriaP === 5){
+            alert(`O Jogo acabou. Player ${vitoriaP} x ${vitoriaB} Bot`);
+            playAgain();
         }
     })
 }
@@ -133,7 +138,7 @@ function resetCards() {
     lock = false;
 }
 
-function playAgain(){
+function playAgain() {
     location.reload();
 }
 

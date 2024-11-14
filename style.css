@@ -19,3 +19,12 @@ body{
 .escolhida{
     border: solid green;
 } 
+
+#playAgain{
+    background-color: black;
+    color: white;
+    padding: 20px 30px;
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
