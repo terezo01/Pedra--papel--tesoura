@@ -121,9 +121,9 @@ cartasP.forEach(carta => {
             }, 1000);
         }
 
-        if((vitoriaB === 3 || vitoriaP === 3) && victory === false){
+        if ((vitoriaB === 3 || vitoriaP === 3) && victory === false) {
             victoryAppear();
-            
+
         }
     })
 }
@@ -149,18 +149,17 @@ function playAgain() {
 
 function victoryAppear() {
     victory = true;
-    victorySong.volume = 1
-    victorySong.play(); 
+    victorySong.play();
     document.getElementById('overlay').classList.add('overlay');
     document.getElementById('victory').classList.add('victory');
     document.getElementById('close').classList.add('close');
-    if(vitoriaP>vitoriaB){
+    if (vitoriaP > vitoriaB) {
         document.getElementById('vitorioso').innerHTML = `O Player venceu de ${vitoriaP} x ${vitoriaB} Bot`;
     }
-    else if(vitoriaP === vitoriaB){
+    else if (vitoriaP === vitoriaB) {
         document.getElementById('vitorioso').innerHTML = `O jogo terminou em empate ${vitoriaP} x ${vitoriaB} `;
     }
-    else{
+    else {
         document.getElementById('vitorioso').innerHTML = `O Bot venceu de ${vitoriaB} x ${vitoriaP} Player`;
     }
 }
