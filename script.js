@@ -3,13 +3,18 @@ let escolhidaB = null;
 let lock = false
 let rodada = 0
 
+let victory = false
+
 let originalContent = document.body.innerHTML
 
 let vitoriaP = 0
 let vitoriaB = 0
 
+const victorySong = document.getElementById('victorySong')
+
 const cartasP = document.querySelectorAll('.cartasP');
 const cartasB = document.querySelectorAll('.cartasB');
+
 
 cartasP.forEach(carta => {
     escolhidaP = false
@@ -116,9 +121,9 @@ cartasP.forEach(carta => {
             }, 1000);
         }
 
-        if(vitoriaB === 5 || vitoriaP === 5){
-            alert(`O Jogo acabou. Player ${vitoriaP} x ${vitoriaB} Bot`);
-            playAgain();
+        if((vitoriaB === 3 || vitoriaP === 3) && victory === false){
+            victoryAppear();
+            
         }
     })
 }
@@ -142,3 +147,28 @@ function playAgain() {
     location.reload();
 }
 
+function victoryAppear() {
+    victory = true;
+    victorySong.volume = 1
+    victorySong.play(); 
+    document.getElementById('overlay').classList.add('overlay');
+    document.getElementById('victory').classList.add('victory');
+    document.getElementById('close').classList.add('close');
+    if(vitoriaP>vitoriaB){
+        document.getElementById('vitorioso').innerHTML = `O Player venceu de ${vitoriaP} x ${vitoriaB} Bot`;
+    }
+    else if(vitoriaP === vitoriaB){
+        document.getElementById('vitorioso').innerHTML = `O jogo terminou em empate ${vitoriaP} x ${vitoriaB} `;
+    }
+    else{
+        document.getElementById('vitorioso').innerHTML = `O Bot venceu de ${vitoriaB} x ${vitoriaP} Player`;
+    }
+}
+
+function closeVictory() {
+    victory = true;
+    victorySong.currentTime = victorySong.duration;
+    document.getElementById('overlay').classList.remove('overlay');
+    document.getElementById('victory').classList.remove('victory');
+    document.getElementById('close').classList.remove('close');
+}
